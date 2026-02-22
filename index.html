@@ -1,4 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-  
+<html>
+<head>
+    <style>
+        .microphone {
+            color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .listening {
+            background-color: #ffcc00;
+            color: #fff;
+        }
+    </style>
+    <script>
+        let isListening = false;
+
+        function toggleListening() {
+            const micButton = document.getElementById('microphone');
+            isListening = !isListening;
+            if (isListening) {
+                micButton.classList.add('listening');
+                micButton.textContent = 'Listening...';
+            } else {
+                micButton.classList.remove('listening');
+                micButton.textContent = 'Listen';
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="microphone" class="microphone" onclick="toggleListening()">Listen</button>
+</body>
 </html>
